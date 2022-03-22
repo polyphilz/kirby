@@ -1,9 +1,7 @@
-chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
+chrome.tabs.onUpdated.addListener((tabId, _, tab) => {
   const url = tab.url || tab.pendingUrl;
 
-  if (!url) {
-    return;
-  }
+  if (!url) return;
 
   chrome.storage.sync.get("sites", (data) => {
     for (const site of data.sites) {
