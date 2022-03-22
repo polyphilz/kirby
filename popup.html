@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div>
+      <h1>Your current blocklist:</h1>
+      <ul id="blocklist"></ul>
+    </div>
+
+    <div>
+      <h1>Block a new site:</h1>
+      <label for="add-site">
+        <p>
+          Format:
+          &#60;optional-subdomain&#62;.&#60;second-level-domain&#62;.&#60;TLD&#62;/&#60;optional-subdirectory&#62;
+        </p>
+        <p>For example: blog.hubspot.com/marketing</p>
+      </label>
+      <input type="text" id="add-site" name="add-site" />
+      <button id="add"></button>
+    </div>
+
+    <div>
+      <h1>Remove a blocked site:</h1>
+      <input type="text" id="remove-site" name="remove-site" />
+      <button id="remove"></button>
+    </div>
+
+    <script type="text/javascript" src="./popup.js"></script>
+  </body>
+</html>
