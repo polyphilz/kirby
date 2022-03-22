@@ -5,7 +5,7 @@ function renderBlockList() {
     ul.removeChild(ul.firstChild);
   }
 
-  chrome.storage.sync.get("sites", (data) => {
+  chrome.storage.sync.get("kirbySites", (data) => {
     for (const url of data.sites) {
       const li = document.createElement("li");
       li.innerText = url;
@@ -14,8 +14,20 @@ function renderBlockList() {
   });
 }
 
+const addForm = document.getElementById("add-form");
 const addSiteButton = document.getElementById("add");
 const removeSiteButton = document.getElementById("remove");
+const days = ["mon", "tue", "wed", "thur", "fri", "sat", "sun"];
+const checkboxes = [];
+for (const day of days) {
+  const checkbox = document.getElementById(day);
+  checkbox.onchange((value) => {
+    if (value) {
+      let blah = document.createElement("");
+    }
+  });
+  checkboxes.push(checkbox);
+}
 
 addSiteButton.onclick = () => {
   const input = document.getElementById("add-site");
@@ -25,7 +37,7 @@ addSiteButton.onclick = () => {
     return;
   }
 
-  chrome.storage.sync.get("sites", (data) => {
+  chrome.storage.sync.get("kirbySites", (data) => {
     chrome.storage.sync.set({ sites: [...data.sites, inputValue] }, () => {
       renderBlockList();
       input.value = "";
@@ -41,7 +53,7 @@ removeSiteButton.onclick = () => {
     return;
   }
 
-  chrome.storage.sync.get("sites", (data) => {
+  chrome.storage.sync.get("kirbySites", (data) => {
     chrome.storage.sync.set(
       { sites: data.sites.filter((site) => site !== inputValue) },
       () => {

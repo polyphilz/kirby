@@ -13,18 +13,31 @@
       <ul id="blocklist"></ul>
     </div>
 
+    <br />
+
     <div>
       <h1>Block a new site:</h1>
-      <label for="add-site">
-        <p>
-          Format:
-          &#60;optional-subdomain&#62;.&#60;second-level-domain&#62;.&#60;TLD&#62;/&#60;optional-subdirectory&#62;
-        </p>
-        <p>For example: blog.hubspot.com/marketing</p>
-      </label>
-      <input type="text" id="add-site" name="add-site" />
-      <button id="add"></button>
+      <form id="add-form">
+        <label for="add-site">
+          <p>
+            Format:
+            &#60;optional-subdomain&#62;.&#60;second-level-domain&#62;.&#60;TLD&#62;/&#60;optional-subdirectory&#62;
+          </p>
+          <p>For example: blog.hubspot.com/marketing</p>
+        </label>
+        <input type="text" id="add-site" name="add-site" required />
+        <input type="checkbox" id="mon" name="mon" value="1" />
+        <input type="checkbox" id="tue" name="tue" value="2" />
+        <input type="checkbox" id="wed" name="wed" value="3" />
+        <input type="checkbox" id="thur" name="thur" value="4" />
+        <input type="checkbox" id="fri" name="fri" value="5" />
+        <input type="checkbox" id="sat" name="sat" value="6" />
+        <input type="checkbox" id="sun" name="sun" value="7" />
+        <input type="submit" id="add" />
+      </form>
     </div>
+
+    <br />
 
     <div>
       <h1>Remove a blocked site:</h1>
