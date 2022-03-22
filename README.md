@@ -12,6 +12,13 @@ A simple Chrome extension that lets you block websites:
 - [ ] Design data format for Chrome storage insertions
 - [ ] URL validation on form inputs
 - [ ] Add support for blocking on specific days of the week. Within each blocked day, be able to specify blocked times
+- [ ] Design and add icons for use in:
+  - Toolbar
+  - Extension management page
+  - Permissions warning
+  - Favicon
+- [ ] Let users choose whether to display Sunday first or not in options
+- [ ] Publish to Chrome extension marketplace
 
 ## Chrome Storage Format
 
