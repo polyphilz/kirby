@@ -7,10 +7,11 @@ A simple Chrome extension that lets you block websites:
 
 ## TODO
 
-- [ ] Design default popup UI
+- [ ] Design default popup UI and consider what it should show
+- [ ] Design options UI and what can be configured in it
 - [ ] Design data format for Chrome storage insertions
-- [ ] URL validation
-- [ ] Add support for blocking on specific days of the week. Within each day, be able to specify blocked times
+- [ ] URL validation on form inputs
+- [ ] Add support for blocking on specific days of the week. Within each blocked day, be able to specify blocked times
 
 ## Chrome Storage Format
 
