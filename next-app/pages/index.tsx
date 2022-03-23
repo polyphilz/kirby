@@ -17,13 +17,17 @@ const Home: NextPage = () => {
     setTimeout(() => {
       setBlockedUrlInfoList(fakeEntriesList);
       setBlockedUrlsLoading(false);
-    }, 2000);
+    }, 1000);
   }, []);
 
   const urlRemovedCallback = (url: string) => {
     setBlockedUrlInfoList(
       blockedUrlInfoList.filter((entry: Entry) => entry.url !== url)
     );
+  };
+
+  const urlAddedCallback = (newEntry: Entry) => {
+    console.log(newEntry);
   };
 
   return (
@@ -34,7 +38,7 @@ const Home: NextPage = () => {
         blockedUrlInfoList={blockedUrlInfoList}
         loading={blockedUrlsLoading}
       />
-      <AddSite />
+      <AddSite urlAddedCallback={urlAddedCallback} />
     </div>
     // <div className={styles.container}>
     //   <Head>
