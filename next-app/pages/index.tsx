@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
 
-import { entry1, entry2 } from "../util/fakeData";
+import { fakeEntriesList } from "../util/fakeData";
 import { Entry } from "../util/types";
 import AddSite from "../components/addsite/AddSite";
 import Blocked from "../components/blocked/Blocked";
@@ -11,17 +11,29 @@ import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
   const [blockedUrlInfoList, setBlockedUrlInfoList] = useState<Entry[]>([]);
+  const [blockedUrlsLoading, setBlockedUrlsLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
-      setBlockedUrlInfoList([entry1, entry2]);
-    }, 3000);
-  });
+      setBlockedUrlInfoList(fakeEntriesList);
+      setBlockedUrlsLoading(false);
+    }, 2000);
+  }, []);
+
+  const urlRemovedCallback = (url: string) => {
+    setBlockedUrlInfoList(
+      blockedUrlInfoList.filter((entry: Entry) => entry.url !== url)
+    );
+  };
 
   return (
     <div className="p-5 flex flex-col">
       <Logo />
-      <Blocked blockedUrlInfoList={blockedUrlInfoList} />
+      <Blocked
+        urlRemovedCallback={urlRemovedCallback}
+        blockedUrlInfoList={blockedUrlInfoList}
+        loading={blockedUrlsLoading}
+      />
       <AddSite />
     </div>
     // <div className={styles.container}>

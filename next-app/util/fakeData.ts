@@ -21,3 +21,17 @@ export const entry2: Entry = {
   isPermaBlocked: true,
   dayInfo: {},
 };
+
+export const entry3: Entry = {
+  url: "facebook.com",
+  isPermaBlocked: true,
+  dayInfo: {},
+};
+
+export const entry4: Entry = {
+  url: "youtube.com",
+  isPermaBlocked: true,
+  dayInfo: {},
+};
+
+export const fakeEntriesList: Entry[] = [entry1, entry2, entry3, entry4];

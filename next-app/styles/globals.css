@@ -1,8 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Mukta&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
 
 html,
 body {
@@ -19,15 +24,11 @@ html {
 body {
   background: #13171a;
   color: white;
-  width: 400px;
-  max-width: 400px;
+  width: 450px;
+  max-width: 450px;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
 }

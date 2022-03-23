@@ -1,26 +1,39 @@
 import React from "react";
 
 import { Entry } from "../../util/types";
+import BlockedEntry from "../blockedentry/BlockedEntry";
 import Header from "../header/Header";
 
 interface BlockedProps {
+  urlRemovedCallback: (url: string) => void;
   blockedUrlInfoList: Entry[];
+  loading: boolean;
 }
 
 const Blocked: React.FC<BlockedProps> = ({
+  urlRemovedCallback,
   blockedUrlInfoList,
+  loading,
 }: BlockedProps) => {
   return (
-    <div className="pb-10">
+    <div className="pb-10 font-PT">
       <Header text={"Blocked"} underlineBarWidthPx={140} />
       <div
-        style={{ background: "#1C272D", minHeight: "200px" }}
-        className="rounded-md p-3"
+        style={{ minHeight: "200px" }}
+        className="rounded-md overflow-scroll bg-light-gunmetal-1 max-h-72"
       >
-        {!blockedUrlInfoList.length && <p>Loading...</p>}
+        {loading && <div className="p-3">Loading...</div>}
         <ul>
           {blockedUrlInfoList.map((urlInfo, idx) => {
-            return <li key={idx}>{urlInfo.url}</li>;
+            return (
+              <li key={idx}>
+                <BlockedEntry
+                  urlRemovedCallback={urlRemovedCallback}
+                  entry={urlInfo}
+                />
+                <hr />
+              </li>
+            );
           })}
         </ul>
       </div>
