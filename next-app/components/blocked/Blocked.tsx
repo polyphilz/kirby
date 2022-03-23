@@ -31,7 +31,7 @@ const Blocked: React.FC<BlockedProps> = ({
                   urlRemovedCallback={urlRemovedCallback}
                   entry={urlInfo}
                 />
-                <hr />
+                {idx !== blockedUrlInfoList.length - 1 && <hr />}
               </li>
             );
           })}
