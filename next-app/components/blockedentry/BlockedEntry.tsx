@@ -1,7 +1,7 @@
 import React from "react";
 
 import CircleButton from "./circlebutton/CircleButton";
-import DayBubble from "./daybubbles/DayBubble";
+import DayBubble from "../daybubbles/DayBubble";
 import AllInclusiveIcon from "@mui/icons-material/AllInclusive";
 import { Entry, orderedDayList, Day } from "../../util/types";
 

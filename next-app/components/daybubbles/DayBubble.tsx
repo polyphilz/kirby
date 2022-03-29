@@ -1,23 +1,17 @@
 import React from "react";
 import Tooltip from "@mui/material/Tooltip";
 
-import { Day, DayInfo } from "../../../util/types";
+import { Day, DayInfo } from "../../util/types";
+import {
+  getFirstCapitalizedLetterOfDay,
+  dayEnumToDayString,
+} from "../../util/utils";
 
 interface DayBubbleProps {
   day: Day;
   isSelected: boolean;
   dayInfo?: DayInfo | undefined;
 }
-
-const dayToLetter = new Map<Day, string>([
-  [Day.Mon, "M"],
-  [Day.Tue, "T"],
-  [Day.Wed, "W"],
-  [Day.Thur, "T"],
-  [Day.Fri, "F"],
-  [Day.Sat, "S"],
-  [Day.Sun, "S"],
-]);
 
 const DUPLICATE_BUBBLE_STYLES =
   "rounded-full h-5 w-5 select-none flex justify-center items-center";
@@ -27,15 +21,17 @@ const DayBubble: React.FC<DayBubbleProps> = ({
   isSelected,
   dayInfo = undefined,
 }: DayBubbleProps) => {
-  function convertMilitaryTimeToStandard(time: number): string {
+  function convertMilitaryTimeToStandard(time: Date): string {
+    console.log(time);
     let suffix = "AM";
-    if (time >= 12) {
-      if (time > 12) {
-        time -= 12;
+    let timeInHours = time.getHours();
+    if (timeInHours >= 12) {
+      if (timeInHours > 12) {
+        timeInHours -= 12;
       }
       suffix = "PM";
     }
-    return `${time}${suffix}`;
+    return `${timeInHours}:${time.getMinutes()} ${suffix}`;
   }
 
   function generateTooltipTitle(): string {
@@ -46,7 +42,11 @@ const DayBubble: React.FC<DayBubbleProps> = ({
     )} | Ends - ${convertMilitaryTimeToStandard(dayInfo.end)}`;
   }
 
-  const dayLetter = <span className="text-xs">{dayToLetter.get(day)}</span>;
+  const dayLetter = (
+    <span className="text-xs">
+      {getFirstCapitalizedLetterOfDay(dayEnumToDayString.get(day))}
+    </span>
+  );
 
   if (!isSelected) {
     return (

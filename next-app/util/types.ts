@@ -25,6 +25,6 @@ export const orderedDayList: Day[] = [
 ];
 
 export interface DayInfo {
-  start: number;
-  end: number;
+  start: Date;
+  end: Date;
 }

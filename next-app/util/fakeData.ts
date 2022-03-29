@@ -1,19 +1,23 @@
 import { Entry, Day, DayInfo } from "./types";
 
-const eightToFour: DayInfo = {
-  start: 8,
-  end: 16,
+const eightThirtyToFour: DayInfo = {
+  start: new Date(),
+  end: new Date(),
 };
+eightThirtyToFour.start.setHours(8, 30);
+eightThirtyToFour.end.setHours(4);
 
 const nineToFive: DayInfo = {
-  start: 9,
-  end: 17,
+  start: new Date(),
+  end: new Date(),
 };
+nineToFive.start.setHours(9);
+nineToFive.end.setHours(5);
 
 export const entry1: Entry = {
   url: "example.com",
   isPermaBlocked: false,
-  dayInfo: { [Day.Mon]: eightToFour, [Day.Sun]: nineToFive },
+  dayInfo: { [Day.Mon]: eightThirtyToFour, [Day.Sun]: nineToFive },
 };
 
 export const entry2: Entry = {
