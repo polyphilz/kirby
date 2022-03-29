@@ -5,14 +5,14 @@ const eightThirtyToFour: DayInfo = {
   end: new Date(),
 };
 eightThirtyToFour.start.setHours(8, 30);
-eightThirtyToFour.end.setHours(4);
+eightThirtyToFour.end.setHours(4, 0);
 
 const nineToFive: DayInfo = {
   start: new Date(),
   end: new Date(),
 };
-nineToFive.start.setHours(9);
-nineToFive.end.setHours(5);
+nineToFive.start.setHours(9, 0);
+nineToFive.end.setHours(5, 0);
 
 export const entry1: Entry = {
   url: "example.com",
